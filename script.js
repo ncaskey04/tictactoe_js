@@ -1,23 +1,21 @@
 window.onload = function() {
 
-
 	var boxes = document.getElementsByClassName("boxes");
-	var taco = false;
+	var turn = false;
 	var display = document.getElementById("display");
 	
-
 	for(i=0; i < boxes.length; i++){
 		display.innerHTML = "ITS PLAYER X'S TURN!"
 		boxes[i].onclick = function () {
-			if (taco === false && this.innerHTML === "") {
+			if (turn === false && this.innerHTML === "") {
 				this.innerHTML = "X";
 				this.style.color = "red";
-				taco = true;
+				turn = true;
 				display.innerHTML = "ITS PLAYER O'S TURN!"
-			} else if (taco === true && this.innerHTML === "") {
+			} else if (turn === true && this.innerHTML === "") {
 				this.innerHTML = "0";
 				this.style.color = "blue";
-				taco = false;
+				turn = false;
 				display.innerHTML = "ITS PLAYER X'S TURN!"
 			}
 		}
@@ -26,7 +24,7 @@ window.onload = function() {
 	var clear = document.getElementById("reset");
 
 	clear.onclick = function() {
-		taco = false;
+		turn = false;
 		display.innerHTML = "ITS PLAYER X'S TURN!";
 		for (i=0; i< boxes.length; i++){
 			boxes[i].innerHTML = "";
